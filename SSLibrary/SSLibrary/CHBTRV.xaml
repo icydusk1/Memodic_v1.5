@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="SSLibrary.CHBTRV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SSLibrary"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100">
+    <Grid>
+        <TreeView Name="TRV_TreeView" ItemsSource="{Binding Path=NetworkItems}" Margin="0,0,0,0">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:NetworkItem}" ItemsSource="{Binding Path=Children}">
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding Path=IsChecked}"/>
+                        <TextBlock Text="{Binding Path=Name}" Margin="5, 0, 0, 0"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </Grid>
+</UserControl>
